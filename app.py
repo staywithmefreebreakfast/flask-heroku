@@ -20,6 +20,9 @@ data = [
         }
     ]
 
+@app.route('/')
+def hello():
+        return "Hello Flask-heroku"
 
 
 @app.route('/api', methods=['GET'])
