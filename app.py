@@ -22,7 +22,7 @@ data = [
 
 @app.route('/')
 def hello():
-        return "Hello Flask-heroku"
+        return "เจนจิราพร ทองแดง เลขที่ 10 ม.4/10"
 
 
 @app.route('/api', methods=['GET'])
