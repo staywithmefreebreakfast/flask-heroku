@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask import Flask, render_template
+
 app = Flask(__name__)
 
 data = [
@@ -32,7 +33,6 @@ def get_api():
 @app.route('/name')
 def name():
         return "<font color=purple>เจนจิราพร ทองแดง</font> <br>เลขที่ 10 ม.4/10"
-
 
 @app.route('/hello/<string:name>')
 def Home(name):
