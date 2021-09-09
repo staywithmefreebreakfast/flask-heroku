@@ -51,6 +51,7 @@ def name():
 @app.route('/hello/<string:name>')
 def Home(name):
 	return render_template('home.html', name_html=name)
+
 @app.route('/video')
 def index():
     return render_template('index.html')
