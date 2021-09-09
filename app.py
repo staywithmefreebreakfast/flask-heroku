@@ -1,8 +1,21 @@
 from flask import Flask, jsonify
-from flask import Flask, render_template
+from flask import Flask, render_template, Response 
+import cv2
+
+camera = cv2.VideoCapture('rtsp://freja.hiof.no:1935/rtplive/_definst_/hessdalen03.stream')
 
 app = Flask(__name__)
 
+def gen_frames():  
+    while True:
+        success, frame = camera.read()  # read the camera frame
+        if not success:
+            break
+        else:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')  # concat frame one by one and show result
 data = [
         {
             "id": 1,
